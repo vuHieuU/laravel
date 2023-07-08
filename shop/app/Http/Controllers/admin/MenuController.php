@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class MenuController extends Controller
 {
-//      protected $MenuServices;
+     protected $menu;
 
       public function __construct()
       {
