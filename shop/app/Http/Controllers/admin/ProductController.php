@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 //    const _PER_PAGE = 3;
+     protected $product;
     public function __construct()
     {
         $this->product = new product;
