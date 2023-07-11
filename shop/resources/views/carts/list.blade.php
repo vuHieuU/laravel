@@ -4,6 +4,7 @@
 
 	<!-- Shoping Cart -->
 	<form class="bg0 p-t-65 p-b-85 mt-5" method="POST">
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -56,13 +57,15 @@
 						</div>
 
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							<div class="flex-w flex-m m-r-20 m-tb-5">
-								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
-									
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-									Apply coupon
-								</div>
-							</div>
+						       <form method="POST" action="{{ route('client.carts.apply_coupon') }}">
+									<div class="flex-w flex-m m-r-20 m-tb-5">
+										<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" value="{{ Session::get('coupon_code') }}"
+										name="coupon_code" placeholder="Coupon Code">
+										
+										<input type="submit" class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" value="Apply coupon">
+						
+									</div>
+							   </form>
                              <input type="submit" value="Update Cart" formaction="/update_Cart"
 							 class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
 							@csrf
@@ -88,7 +91,14 @@
 								</span>
 							</div>
 						</div>
-
+						{{-- @if (session('discount_amount_price'))
+						<div class="d-flex justify-content-between">
+							<h6 class="font-weight-medium">Coupon </h6>
+							<h6 class="font-weight-medium coupon-div"
+								data-price="{{ session('discount_amount_price') }}">
+								${{ session('discount_amount_price') }}</h6>
+						</div>
+					@endif --}}
 						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
 						
 							<div class="p-r-18 p-r-0-sm w-full">
