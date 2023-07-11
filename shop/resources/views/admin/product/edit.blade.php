@@ -16,12 +16,11 @@
                     <div class="form-group col-6">
                         <label for="exampleInputPassword1">Danh mục</label>
                         <select class="form-control" name="menu_id">
-                            <option value="0">Danh mục cha</option>
                             @if (!empty($getAdd))
 
                                 @foreach ($getAdd as $item)
 
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    <option value="{{$item->id}}" {{$DataEdit->menu_id == $item->id ? 'selected':'' }}>{{$item->name}}</option>
 
                                 @endforeach
 
